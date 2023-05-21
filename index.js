@@ -42,7 +42,7 @@ const start = () => {
     if (text === "/game") {
       return startGame(chatId);
     }
-    return bot.sendMessage(chatId, "Нувірна команда, спробуйте ще раз!");
+    return bot.sendMessage(chatId, "Нeвірна команда, спробуйте ще раз!");
   });
 };
 
@@ -55,13 +55,13 @@ bot.on("callback_query", (msg) => {
   if (data == chats[chatId]) {
     return bot.sendMessage(
       chatId,
-      `Вітаю! Ви відгадали число ${chats[chatId]}`,
+      `Вітаю ${msg.from.first_name}! Ви відгадали число ${chats[chatId]}`,
       againOptions
     );
   } else {
     return bot.sendMessage(
       chatId,
-      `Нажаль ви не відгадали число ${chats[chatId]}`,
+      `${msg.from.first_name} Нажаль ви не відгадали число ${chats[chatId]}`,
       againOptions
     );
   }
