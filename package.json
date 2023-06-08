@@ -2,9 +2,10 @@
   "name": "tg_bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
-    "dev": "vc dev",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "dev-with-tunnel": "npm run tunnel & npm run dev",
     "tunnel": "cloudflared tunnel --url http://localhost:3000"
   },
