@@ -1,5 +1,7 @@
+import { start } from "telebot-vercel";
+
 const telegramApi = require("node-telegram-bot-api");
-const {gameOptions, againOptions} = require('./options')
+const { gameOptions, againOptions } = require("./options");
 const token = "5990744891:AAFkhH0mhqOdL39Lz040tkqKnrUWuyBzjGc";
 
 const bot = new telegramApi(token, { polling: true });
@@ -65,4 +67,4 @@ bot.on("callback_query", (msg) => {
   }
 });
 
-start();
+export default start({ bot });
