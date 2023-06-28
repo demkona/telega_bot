@@ -70,6 +70,7 @@ bot.on("callback_query", async (msg) => {
     return startGame(chatId);
   }
   const user = await UserModel.findOne({ chatId });
+  console.log("ЦЕ МОЯ ТЕМА", typeof(data), data, typeof(chats[chatId]), chats[chatId] )
   if (data == chats[chatId]) {
     user.right += 1;
     await bot.sendMessage(
