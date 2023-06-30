@@ -73,18 +73,11 @@ bot.on("callback_query", async (msg) => {
   console.log("ЦЕ МОЯ ТЕМА", typeof(data), data, typeof(chats[chatId]), chats[chatId] )
   if (data == chats[chatId]) {
     user.right += 1;
-    await bot.sendMessage(
-      chatId,
-      `Вітаю ${msg.from.first_name}! Ви відгадали число ${chats[chatId]}`,
-      againOptions
-    );
+    await bot.sendMessage(chatId, `Вітаю ${msg.from.first_name}! Ви відгадали число ${chats[chatId]}`, againOptions);
+    await user.save();
   } else {
     user.wrong += 1;
-    await bot.sendMessage(
-      chatId,
-      `${msg.from.first_name} Нажаль ви не відгадали число ${chats[chatId]}`,
-      againOptions
-    );
+    await bot.sendMessage(chatId, `${msg.from.first_name} Нажаль ви не відгадали число ${chats[chatId]}`, againOptions);
     await user.save();
   }
 });
